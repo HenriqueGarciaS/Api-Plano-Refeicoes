@@ -6,11 +6,11 @@ namespace APIPlanoDeReficoes.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PatientController : ControllerBase
+    public class PatientsController : ControllerBase
     {
         private readonly IPatientRepository _repository;
 
-        public PatientController(IPatientRepository repository)
+        public PatientsController(IPatientRepository repository)
         {
             _repository = repository;
         }
@@ -56,6 +56,13 @@ namespace APIPlanoDeReficoes.Controllers
         { 
             var deletedPatient = await _repository.DeleteById(id);
             return Ok(deletedPatient);
+        }
+
+        //Todo
+        [HttpGet("{id:int}/mealplans/today")]
+        public async Task<ActionResult> GetTodayMealPlan(int id)
+        {
+            return Ok();
         }
     }
 }
