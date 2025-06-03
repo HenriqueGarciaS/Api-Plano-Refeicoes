@@ -10,6 +10,7 @@ namespace APIPlanoDeReficoes.Context
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Food> Foods { get; set; }
         public DbSet<MealPlan> MealPlans { get; set; }
+        public DbSet<User> Users { get; set; }
 
     }
 }

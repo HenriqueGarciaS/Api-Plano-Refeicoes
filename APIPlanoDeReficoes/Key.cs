@@ -1,0 +1,7 @@
+﻿namespace APIPlanoDeReficoes
+{
+    public class Key
+    {
+        public static string Secret = "MIICWgIBAAKBgE95ZQNrBA+rkR5DSWcPTy+8cfy5+t1QX33VjHCRZjIfXX93KT9G\r\nA07KC+/Skbf/tXeRFxiiH8gdYQzvrk8im2+byW4N9yek2n6Fv5ySS6+/e1Nzly8i\r\noIg+LyQIc8oLuGcvoJZAQcFS4dRtziGSn58nsBm5zJ5uDUPfEyOFgLHvAgMBAAEC\r\ngYBLB1EM9AgGfzNmfaGbkUFx0JdQP4gNTeaI1oVadHolkaTkRGwFVySiSm8Qfxug\r\nuODpu2kxkUUt2EaaPuCxxvs0SU+br8GhGCa+0q2VrQ6ctmVS+Vk7Zj008NBd/TaJ\r\nE08920VQpRv+MFJYWxWdt9/hxLpKwWWK/G9WCocV6f9CoQJBAJw8TW1OotCBThKR\r\nIP0V9nsg7UhQbeqDhFyRBXlwriWD/MVoptWfKv7b8yqNKhcgIfDeOYn4zGS1JFoG\r\nkAJX8lECQQCCOPnipOHrRpYmwfWP3wD7BpPFdvjD3BL6v5f83DbGG5XDSv1Jze6S\r\nBOivEYNP3TVKiANAH9Xq7mVpz32KhxA/AkAE47I8oIBh7BoIZLhWk1BibBZg8/ts\r\nom8LApLcSRV6IRZRC0RlXRTYYwPKKh7OGHhXdGzyj3G+GRkpJBlvqVbxAkABFTo2\r\nwUpDq52aCujg3mjirYZTEQ82icD6ptc7uhUWhqozKo96qqS+QB4zPoEKC/vid8kX\r\nImyj/IGJZLlVipP/AkAUaupuEvMLJPsaw+byQ5EZA1YjxJ5wYbPBoej75dKYZbtE\r\nDoTLjB2wJrBNhyJ8wHDCAfJhM0FOHUeaI1/5Z6tW";
+    }
+}
