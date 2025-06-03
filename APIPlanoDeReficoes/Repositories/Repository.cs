@@ -13,35 +13,35 @@ namespace APIPlanoDeReficoes.Repositories
             _context = context;
         }
 
-        public virtual IEnumerable<T> GetAll()
+        public async virtual Task<IEnumerable<T>> GetAll()
         {
-            return _context.Set<T>().AsNoTracking().ToList();
+            return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
-        public virtual T? GetById(int id)
+        public async virtual Task<T?> GetById(int id)
         {
-            return _context.Set<T>().Find(id);
+            return await _context.Set<T>().FindAsync(id);
         }
 
-        public T Create(T model)
+        public async Task<T> Create(T model)
         {
-            _context.Set<T>().Add(model);
-            _context.SaveChanges();
+            await _context.Set<T>().AddAsync(model);
+            await _context.SaveChangesAsync();
             return model;
         }
 
-        public T Update(T model)
+        public async Task<T> Update(T model)
         {
             _context.Set<T>().Update(model);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return model;
         }
 
-        public virtual T DeleteById(int id)
+        public async virtual Task<T> DeleteById(int id)
         {
-            var model = _context.Set<T>().Find(id);
+            var model = await _context.Set<T>().FindAsync(id);
             _context.Set<T>().Remove(model);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return model;
         }
     }

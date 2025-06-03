@@ -8,22 +8,24 @@ namespace APIPlanoDeReficoes.Repositories
     {
         public PatientRepository(AppDbContext context) : base(context) { }
 
-        public override IEnumerable<Patient> GetAll()
+        public override async Task<IEnumerable<Patient>> GetAll()
         {
-            return _context.Patients.AsNoTracking().ToList().Where(p => p.Deleted == false);
+
+            var patients = await _context.Patients.AsNoTracking().ToListAsync();
+            return patients.Where(p => p.Deleted == false);
         }
 
-        public override Patient? GetById(int id)
+        public override async Task<Patient?> GetById(int id)
         {
-            var patient = _context.Patients.Find(id);
+            var patient = await _context.Patients.FindAsync(id);
             if (patient == null || patient.Deleted == true)
                 return null;
             return patient;
         }
 
-        public override Patient DeleteById(int id)
+        public override async Task<Patient> DeleteById(int id)
         {
-            var patient = _context.Patients.Find(id);
+            var patient = await _context.Patients.FindAsync(id);
             patient.Deleted = true;
             _context.Patients.Update(patient);
             return patient;
