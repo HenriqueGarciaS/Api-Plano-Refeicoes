@@ -7,7 +7,7 @@ public class PatientDto
 {
     public string? Name { get; set; }
     public string? Email { get; set; }
-    
+
     public bool Deleted { get; set; }
     public ICollection<MealPlanDto> MealPlans { get; set; } = new Collection<MealPlanDto>();
 

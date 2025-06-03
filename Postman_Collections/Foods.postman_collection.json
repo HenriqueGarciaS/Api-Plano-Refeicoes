@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "26998a48-501b-4a05-9a64-06620e09c2fd",
+		"name": "Foods",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45575833"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NDg5NzgyNDEsImV4cCI6MTc0ODk3ODU0MSwiaWF0IjoxNzQ4OTc4MjQxfQ.90CX4YKqYAoQADIBO9R65uYIMW1TvYp4uu40F4CXMK0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/Foods"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Food",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NDg5NzgyNDEsImV4cCI6MTc0ODk3ODU0MSwiaWF0IjoxNzQ4OTc4MjQxfQ.90CX4YKqYAoQADIBO9R65uYIMW1TvYp4uu40F4CXMK0"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"apple\",\r\n  \"calories\": 15,\r\n  \"sizeOfPortion\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7190/Foods"
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NDg5NzgyNDEsImV4cCI6MTc0ODk3ODU0MSwiaWF0IjoxNzQ4OTc4MjQxfQ.90CX4YKqYAoQADIBO9R65uYIMW1TvYp4uu40F4CXMK0"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/Foods/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Food",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NDg5NzgyNDEsImV4cCI6MTc0ODk3ODU0MSwiaWF0IjoxNzQ4OTc4MjQxfQ.90CX4YKqYAoQADIBO9R65uYIMW1TvYp4uu40F4CXMK0"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"coca-cola\",\r\n  \"calories\": 150,\r\n  \"sizeOfPortion\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7190/Foods/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Food",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJuYmYiOjE3NDg5NzgyNDEsImV4cCI6MTc0ODk3ODU0MSwiaWF0IjoxNzQ4OTc4MjQxfQ.90CX4YKqYAoQADIBO9R65uYIMW1TvYp4uu40F4CXMK0"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": "https://localhost:7190/Foods/8"
+			},
+			"response": []
+		}
+	]
+}

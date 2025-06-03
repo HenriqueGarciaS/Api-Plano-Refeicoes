@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "18537455-d768-4096-8fda-8bc8583cadc1",
+		"name": "Patients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45575833"
+	},
+	"item": [
+		{
+			"name": "Get By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/Patients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Patient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test patient\",\r\n    \"email\": \"test@test.com\",\r\n    \"deleted\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7190/Patients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://localhost:7190/Patients/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/Patients"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test patient\",\r\n    \"email\": \"test@test.com\",\r\n    \"deleted\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7190/Patients"
+			},
+			"response": []
+		},
+		{
+			"name": "Get meal plan of today",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/Patients/1/mealplans/today"
+			},
+			"response": []
+		}
+	]
+}

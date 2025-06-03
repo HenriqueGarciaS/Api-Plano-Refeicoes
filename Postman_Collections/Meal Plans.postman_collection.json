@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "7930874b-e184-45ca-85df-ac9f33ab7a1c",
+		"name": "Meal Plans",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "45575833"
+	},
+	"item": [
+		{
+			"name": "Get By Id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiTlVUUklUSU9OSVNUIiwibmJmIjoxNzQ4OTc4NTQ0LCJleHAiOjE3NDg5Nzg4NDQsImlhdCI6MTc0ODk3ODU0NH0.5_I1AitaiWhVN_w48MsSf0GhkxfyZVPeYRajQfwNhHU"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/MealPlans/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7190/MealPlans"
+			},
+			"response": []
+		},
+		{
+			"name": "Update meal plan",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\": \"test plan\",\r\n  \"dayOfWeek\": 0,\r\n  \"foods\": [\r\n    {\r\n      \"name\": \"coca-cola 350ml\"\r\n    },\r\n    {\r\n        \"name\": \"water 100ml\"\r\n    },\r\n    {\r\n        \"name\": \"spaghetti 100g\"\r\n    },\r\n    {\r\n        \"name\": \"carrot 100g\"\r\n    }\r\n  ]   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7190/MealPlans/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://localhost:7190/MealPlans/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Create meal plan for patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"name\": \"test plan\",\r\n  \"dayOfWeek\": 0,\r\n  \"foods\": [\r\n    {\r\n      \"name\": \"coca-cola 350ml\"\r\n    },\r\n    {\r\n        \"name\": \"water 100ml\"\r\n    },\r\n    {\r\n        \"name\": \"spaghetti 100g\"\r\n    },\r\n    {\r\n        \"name\": \"carrot 100g\"\r\n    }\r\n  ]   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7190/MealPlans/3"
+			},
+			"response": []
+		}
+	]
+}
