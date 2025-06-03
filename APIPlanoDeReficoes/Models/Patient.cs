@@ -20,6 +20,8 @@ namespace APIPlanoDeReficoes.Models
 
         public ICollection<MealPlan> MealPlans { get; set; }
 
+        public bool Deleted { get; set; } = false;
+
         public Patient()
         {
             MealPlans = new Collection<MealPlan>();
