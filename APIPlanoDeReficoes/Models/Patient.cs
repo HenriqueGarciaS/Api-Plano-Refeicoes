@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using APIPlanoDeReficoes.DTOs;
 
 namespace APIPlanoDeReficoes.Models
 {
@@ -17,6 +18,7 @@ namespace APIPlanoDeReficoes.Models
         [Required]
         [StringLength(80)]
         public string? Email { get; set; }
+        
 
         public ICollection<MealPlan> MealPlans { get; set; }
 
@@ -24,6 +26,14 @@ namespace APIPlanoDeReficoes.Models
 
         public Patient()
         {
+            MealPlans = new Collection<MealPlan>();
+        }
+
+        public Patient(PatientDto patientDto)
+        {
+            Name = patientDto.Name;
+            Email = patientDto.Email;
+            Deleted = patientDto.Deleted;
             MealPlans = new Collection<MealPlan>();
         }
 

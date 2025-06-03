@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using APIPlanoDeReficoes.DTOs;
 
 namespace APIPlanoDeReficoes.Models
 {
@@ -17,8 +18,6 @@ namespace APIPlanoDeReficoes.Models
         [Required]
         public DayOfWeek DayOfWeek { get; set; }
         public ICollection<Food> Foods { get; set; }
-        [Required]
-        public int sizeOfPortion { get; set; }
         [JsonIgnore]
         public Patient? Patient { get; set; }
 
@@ -26,6 +25,14 @@ namespace APIPlanoDeReficoes.Models
         public MealPlan()
         {
             Foods = new Collection<Food>();
+        }
+
+        public MealPlan(MealPlanDto mealPlanDto, Patient patientOfPlan)
+        {
+            Name = mealPlanDto.Name;
+            DayOfWeek = mealPlanDto.DayOfWeek;
+            Foods = new Collection<Food>();
+            this.Patient = patientOfPlan;
         }
 
 

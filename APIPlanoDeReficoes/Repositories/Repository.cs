@@ -13,12 +13,12 @@ namespace APIPlanoDeReficoes.Repositories
             _context = context;
         }
 
-        public async virtual Task<IEnumerable<T>> GetAll()
+        public virtual async Task<IEnumerable<T>> GetAll()
         {
             return await _context.Set<T>().AsNoTracking().ToListAsync();
         }
 
-        public async virtual Task<T?> GetById(int id)
+        public virtual async Task<T?> GetById(int id)
         {
             return await _context.Set<T>().FindAsync(id);
         }
@@ -37,7 +37,7 @@ namespace APIPlanoDeReficoes.Repositories
             return model;
         }
 
-        public async virtual Task<T> DeleteById(int id)
+        public virtual async Task<T> DeleteById(int id)
         {
             var model = await _context.Set<T>().FindAsync(id);
             _context.Set<T>().Remove(model);
