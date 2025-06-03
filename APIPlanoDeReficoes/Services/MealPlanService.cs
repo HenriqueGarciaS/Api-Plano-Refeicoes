@@ -17,9 +17,9 @@ public class MealPlanService : IMealPlanService
         _foodRepository = foodRepository;
     }
 
-    public async Task<IEnumerable<MealPlanDto>> GetAll()
+    public async Task<IEnumerable<MealPlanDto>> GetAll(int page)
     {
-        var mealPlans = await _mealPlanRepository.GetAll();
+        var mealPlans = await _mealPlanRepository.GetAll(page);
         var mealPlanDtos = new List<MealPlanDto>();
         foreach (var mealPlan in mealPlans)
         {
@@ -63,7 +63,7 @@ public class MealPlanService : IMealPlanService
         mealPlan.Name = mealPlanDto.Name;
         mealPlan.DayOfWeek = mealPlanDto.DayOfWeek;
         
-        var foods = await _foodRepository.GetAll();
+        var foods = await _foodRepository.GetAll(1);
         var foodsOfPlan = new List<Food>();
         foreach (var mealPlanFood in mealPlanDto.Foods)
             foodsOfPlan.Add(foods.FirstOrDefault(f => f.Name == mealPlanFood.Name));
@@ -77,6 +77,12 @@ public class MealPlanService : IMealPlanService
         var mealPlan = await _mealPlanRepository.DeleteById(id);
         var mealPlanDto = new MealPlanDto(mealPlan);
         return mealPlanDto;
+    }
+
+    public async Task<MealPlanDto> GetMealPlanByDay(DayOfWeek day, int patientId)
+    {
+        var mealPlan = await _mealPlanRepository.GetByDay(day, patientId);
+        return new MealPlanDto(mealPlan);
     }
     
 }

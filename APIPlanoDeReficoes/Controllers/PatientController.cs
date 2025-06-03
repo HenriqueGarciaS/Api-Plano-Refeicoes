@@ -29,9 +29,9 @@ namespace APIPlanoDeReficoes.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Patient>>> GetAll()
+        public async Task<ActionResult<IEnumerable<Patient>>> GetAll(int page = 1)
         {
-            return Ok(await _patientService.GetAll());
+            return Ok(await _patientService.GetAll(page));
         }
 
         [HttpPost]
@@ -62,9 +62,10 @@ namespace APIPlanoDeReficoes.Controllers
 
         //Todo
         [HttpGet("{id:int}/mealplans/today")]
-        public async Task<ActionResult> GetTodayMealPlan(int id)
+        public async Task<ActionResult<MealPlanDto>> GetTodayMealPlan(int id)
         {
-            return Ok();
+            var mealPlan =  await _patientService.GetMealPlanOfToday(id);
+            return Ok(mealPlan);
         }
     }
 }

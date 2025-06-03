@@ -18,9 +18,9 @@ namespace APIPlanoDeReficoes.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<FoodDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<FoodDto>>> GetAll([FromQuery] int page = 1)
         {
-            return Ok(await _foodService.GetAll());
+            return Ok(await _foodService.GetAll(page));
         }
 
         [HttpGet("{id:int}", Name = "GetFood")]

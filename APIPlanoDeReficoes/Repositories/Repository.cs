@@ -13,9 +13,12 @@ namespace APIPlanoDeReficoes.Repositories
             _context = context;
         }
 
-        public virtual async Task<IEnumerable<T>> GetAll()
+        public virtual async Task<IEnumerable<T>> GetAll(int page)
         {
-            return await _context.Set<T>().AsNoTracking().ToListAsync();
+            int pageSize = 20;
+            if (page - 1 <= 0)
+                return await _context.Set<T>().AsNoTracking().Take(pageSize).ToListAsync();
+            return await _context.Set<T>().AsNoTracking().Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
         public virtual async Task<T?> GetById(int id)

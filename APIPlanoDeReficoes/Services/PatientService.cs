@@ -7,15 +7,17 @@ namespace APIPlanoDeReficoes.Services;
 public class PatientService : IPatientService
 {
     private readonly IPatientRepository _repository;
+    private readonly IMealPlanService _mealPlanService;
 
-    public PatientService(IPatientRepository repository)
+    public PatientService(IPatientRepository repository, IMealPlanService mealPlanService)
     {
         _repository = repository;
+        _mealPlanService = mealPlanService;
     }
 
-    public async Task<IEnumerable<PatientDto>> GetAll()
+    public async Task<IEnumerable<PatientDto>> GetAll(int page)
     {
-        var patients = await _repository.GetAll();
+        var patients = await _repository.GetAll(page);
         var patientsDtos = new List<PatientDto>();
         foreach (var patient in patients)
         {
@@ -58,6 +60,13 @@ public class PatientService : IPatientService
         var patientDto = new PatientDto(patient);
         return patientDto;
 
+    }
+
+    public async Task<MealPlanDto> GetMealPlanOfToday(int id)
+    {
+        var dayOfWeek = DateTime.Today.DayOfWeek;
+        var mealPlanDto = await _mealPlanService.GetMealPlanByDay(dayOfWeek, id);
+        return mealPlanDto;
     }
     
 }

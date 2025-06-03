@@ -14,9 +14,9 @@ public class FoodService : IFoodService
     }
 
 
-    public async Task<IEnumerable<FoodDto>> GetAll()
+    public async Task<IEnumerable<FoodDto>> GetAll(int page)
     {
-        var foods = await _repository.GetAll();
+        var foods = await _repository.GetAll(page);
         var foodDtos = new List<FoodDto>();
         foreach(var food in foods)
             foodDtos.Add(new FoodDto(food));

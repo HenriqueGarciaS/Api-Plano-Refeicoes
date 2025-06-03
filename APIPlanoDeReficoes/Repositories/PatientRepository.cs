@@ -8,10 +8,13 @@ namespace APIPlanoDeReficoes.Repositories
     {
         public PatientRepository(AppDbContext context) : base(context) { }
 
-        public override async Task<IEnumerable<Patient>> GetAll()
+        public override async Task<IEnumerable<Patient>> GetAll(int page)
         {
-
-            var patients = await _context.Patients.AsNoTracking().ToListAsync();
+            List<Patient> patients;
+            if (page - 1 <= 0)
+                patients = await _context.Patients.AsNoTracking().Take(20).ToListAsync();
+            else
+                patients = await _context.Patients.AsNoTracking().Skip((page - 1) * 20).Take(20).ToListAsync();
             return patients.Where(p => p.Deleted == false);
         }
 

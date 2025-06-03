@@ -18,9 +18,9 @@ public class MealPlansController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<MealPlan>>> GetMealPlans()
+    public async Task<ActionResult<IEnumerable<MealPlan>>> GetMealPlans([FromQuery] int page = 1)
     {
-        return Ok(await _mealPlanService.GetAll());
+        return Ok(await _mealPlanService.GetAll(page));
     }
 
     [HttpGet("{id:int}", Name = "GetMealPlanById")]
@@ -29,10 +29,10 @@ public class MealPlansController : ControllerBase
         return Ok(await _mealPlanService.GetById(id));
     }
 
-    [HttpPost("{id:int}")]
-    public async Task<ActionResult<MealPlan>> CreateMealPlan([FromBody] MealPlanDto mealPlan, int id)
+    [HttpPost("{patientId:int}")]
+    public async Task<ActionResult<MealPlan>> CreateMealPlan([FromBody] MealPlanDto mealPlan, int patientId)
     {
-        var mealPlanCreated = await _mealPlanService.Add(mealPlan, id);
+        var mealPlanCreated = await _mealPlanService.Add(mealPlan, patientId);
         return new CreatedAtRouteResult("GetMealPlanById", new { id = mealPlanCreated.Id }, mealPlanCreated);
     }
 
